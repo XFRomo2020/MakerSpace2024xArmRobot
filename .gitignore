@@ -1,0 +1,4 @@
+#ignore all .pdf files
+*.pdf
+MakerSpace*
+__pycache__
