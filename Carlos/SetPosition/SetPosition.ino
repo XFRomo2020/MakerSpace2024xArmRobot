@@ -17,8 +17,8 @@ void setup() {
   mySerial.begin(9600);
 
   // xArm servo positions
-  xArmServo home[] = {{1, 0},
-  
+  xArmServo home[] = {
+    {1, 0},
     {2, 500},
     {3, 500},
     {4, 500},
@@ -26,7 +26,8 @@ void setup() {
     {6, 500}
   };
 
-  xArmServo grab[] = {{1, 0},
+  xArmServo grab[] = 
+    {1, 0},
     {6, 500},
     {4, 1000},
     {5, 400},
@@ -34,7 +35,6 @@ void setup() {
   };
   
   xArmServo closejaw[] = {{1, 1000},
-  
   };
 
   xArmServo lift[] = {{5, 500},
