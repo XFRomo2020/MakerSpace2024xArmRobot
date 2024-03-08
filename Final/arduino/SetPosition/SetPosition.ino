@@ -1,3 +1,4 @@
+/* vim: set ft=cpp: */
 #include "xArmServoController.h"
 #include <SoftwareSerial.h>
 
@@ -5,6 +6,9 @@
 // 1. Uncomment include statement above and following block.
 // 2. Update xArmServoController with mySerial.
 // 3. Change Serial1.begin to mySerial.begin.
+
+//Where do you put the header file?
+//
  
 #define rxPin 2
 #define txPin 3
