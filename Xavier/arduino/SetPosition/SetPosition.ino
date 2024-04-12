@@ -14,15 +14,8 @@ SoftwareSerial mySerial = SoftwareSerial(rxPin, txPin);
 
 xArmServoController myArm = xArmServoController(xArm, mySerial);
 
-void setup() {
-  mySerial.begin(9600);
-
-  //rule of thumb: one-to-seis, hand-to-base
-  //	In other word: servos 1 to 6 is top down
-  //	Range of motion goes from 0 to 1000
-
-  // xArm servo positions
-   xArmServo handsup[] = {
+  // xarm servo positions
+   xArmServo handsUp[] = {
 		{1, 500},
 		{2, 500},
 		{3, 500},
@@ -36,14 +29,6 @@ void setup() {
 		{4, 845},
 		{5, 650}
 	  };
-  xArmServo gripUngrip[] = {
-		{1,500},
-		{2,400},
-		{3,300},
-		{4,200},
-		{5,100},
-		{1,0}
-	  };
   xArmServo openHand[] = {
 	  	{1, 0}
 	  };
@@ -51,37 +36,24 @@ void setup() {
 	  	{1, 1000}
 	  };
   xArmServo rotateBaseNorth[] = {
-	  	{6, 0}
+	  	{6, 75}
 	  };
   xArmServo rotateBaseSouth[] = {
-	  	{6, 1000}
+	  	{6, 850}
 	  };
- 
-  // LeArm servo positions. To use:
-  // 1. Comment out above xArmServo definitions above.
-  // 2. Change xArmServoController mode to LeArm.
-  // 3. Uncomment following block.
-  /*
-  xArmServo handsup[] = {{1, 1500},
-                      {2, 1500},
-                      {3, 1500},
-                      {4, 1500},
-                      {5, 1500},
-                      {6, 1500}};
-  xArmServo bow[] = {{1, 2365},
-                     {3, 520},
-                     {4, 650},
-                     {5, 1035}};
-    */
 
-  myArm.setPosition(openHand, 1);
-  delay(1000);
-  myArm.setPosition(closeHand, 1);
-  delay(1000);
-  myArm.setPosition(rotateBaseNorth, 1, 2000);
-  delay(1000);
-  myArm.setPosition(rotateBaseSouth, 1, 2000);
-  //delay(1000);
+void setup() {
+  mySerial.begin(9600);
+
+  //rule of thumb: one-to-seis, hand-to-base
+  //	in other word: servos 1 to 6 is top down
+  //	range of motion goes from 0 to 1000
+  //	base servo cannot go full 360
+
+
+
+  //Serial.println("Hello Arduino\n");
+  
   //myArm.setPosition(handsup, 6, 1000, true);
   //delay(1000);
   //myArm.setPosition(bow, 4, 3000, true);
@@ -94,4 +66,12 @@ void setup() {
 
 void loop() {
   // Your code here.
+  myArm.setPosition(openHand, 1);
+  delay(1000);
+  myArm.setPosition(closeHand, 1);
+  delay(1000);
+  myArm.setPosition(rotateBaseNorth, 1, 2000, true);
+  delay(1000);
+  myArm.setPosition(rotateBaseSouth, 1, 2000, true);
+  delay(1000);
 }

@@ -26,7 +26,7 @@ void setup() {
     {6, 500}
   };
 
-  xArmServo grab[] = 
+  xArmServo grab[] = {
     {1, 0},
     {6, 500},
     {4, 1000},
@@ -51,7 +51,7 @@ void setup() {
     xArmServo openjaw[] = {{1, 0},
   };
   
-  //Set positioin
+  //Set home positionpositioin
   myArm.setPosition(home, 6, 2000, true);
   delay(1000);
 

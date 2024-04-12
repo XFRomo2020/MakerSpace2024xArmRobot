@@ -18,3 +18,13 @@ If you want to see some of the changes made by other students, you will need to 
 1. `git fetch` - will *fetch* or download the latest changes in the *GitHub* repository
 2. `git merge` - will *merge* the changes into the repository on your computer
 
+#Troubleshooting
+
+##Python
+TBD
+##Arduino
+    After setting up the IDE and making sure you can communicate to your Arduino and making sure your Arduino can communicate to your xArm Robot, you find you cannot replicate your process. Here are some things that can cause this.
+###Serial Wires are hooked up wrong
+    This is most likely to occur during the setting of the input(tx) and output(rx) incorrectly.
+###Early `return;` in `setup()` or `loop()`
+    In the process of prototyping a function, you may find a stray `return;` in you 'staging' function, causing the program to ignore parts of your function. In my case, a `return;` was accidentally put in place after my movement array(an attempt to clean up my code with perfunctory 'void' functions) and it was called after initializing them, terminating the setup() function early, thus never actually executing the SetPosition function.
